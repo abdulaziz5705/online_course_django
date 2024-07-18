@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Free HTML Login Templates</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'regester/css/style.css' %}" />
+    </head>
+    <body>
+        <div class="container clearfix">
+            <div class="form registration">
+                <a class="logo" href="">
+                    <img src="{% static 'regester/img/logo.png' %}" alt="Logo" />
+                </a>
+                 <form method="POST" class="register-form" id="register-form">
+                     {% csrf_token %}
+                    <p>
+                        <label>First name<span>*</span></label>
+                        <input type="text" name="name" id="name" placeholder="First Name" required>
+                    </p>
+                    <p>
+                        <label>Last name<span>*</span></label>
+                        <input type="text" name="last_name" id="last_name" placeholder="Last name" required>
+                    </p>
+                    {% if message_username != '' %}
+                        <h5 style="color: red"> {{ message_username }} </h5>
+                    {% endif %}
+                    <div class="form-group">
+                        <p>
+                            <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <label>Username<span>*</span></label>
+                            <input type="text" name="username" id="username" placeholder="Username" required>
+                        </p>
+                    </div>
+                    <p>
+                        <label>Email address<span>*</span></label>
+                        <input type="email" name="email" id="email" placeholder="Email" required>
+                    </p>
+                    {% if message_password != ''  %}
+                        {{message_password}}
+                    {% endif %}
+                    <p>
+                        <label>Password<span>*</span></label>
+                        <input type="password" name="password" id="password" placeholder="Password" required>
+                    </p>
+                    <p>
+                        <label>Again password<span>*</span></label>
+                        <input type="password" name="password1" id="password1" placeholder="Again password " required>
+                    </p>
+                    <p>
+                        <label>
+                            <a href="{% url 'login' %}">Have an account</a>
+
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </label>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
