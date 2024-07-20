@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<h1>Update</h1>
+    <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form bg-secondary rounded p-5">
+                        <div id="success"></div>
+                        <form method="post">
+                            {% csrf_token %}
+
+                            <div class="control-group">
+                                <input type="text" value="{{course.title }}" name="title" class="form-control border-0 p-4" id="title" placeholder="Title" required="required" data-validation-required-message="Please enter title" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" value="{{course.description }}" name="description" class="form-control border-0 p-4" id="description" placeholder="Description" required="required" data-validation-required-message="Please enter description" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" value="{{course.mentor }}" name="mentor" class="form-control border-0 p-4" id="mentor" placeholder="Mentor" required="required" data-validation-required-message="Please enter mentor" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                             <div class="control-group">
+                                <input type="number" value="{{course.price }}" name="price" class="form-control border-0 p-4" id="price" placeholder="Price" required="required" data-validation-required-message="Please enter price" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="number" value="{{course.active_students }}" name="active_students" class="form-control border-0 p-4" id="active_students" placeholder="Active students" required="required" data-validation-required-message="Please enter active students" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

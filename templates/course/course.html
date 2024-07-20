@@ -1,4 +1,4 @@
-{% extends 'base/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 
@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="../static/img/cat-1.jpg" alt="">
+                        <img class="img-fluid" src="../../static/img/cat-1.jpg" alt="">
                         <a class="cat-overlay text-white text-decoration-none" href="">
                             <h4 class="text-white font-weight-medium">Web Design</h4>
                             <span>100 Courses</span>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="../static/img/cat-2.jpg" alt="">
+                        <img class="img-fluid" src="../../static/img/cat-2.jpg" alt="">
                         <a class="cat-overlay text-white text-decoration-none" href="">
                             <h4 class="text-white font-weight-medium">Development</h4>
                             <span>100 Courses</span>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="../static/img/cat-3.jpg" alt="">
+                        <img class="img-fluid" src="../../static/img/cat-3.jpg" alt="">
                         <a class="cat-overlay text-white text-decoration-none" href="">
                             <h4 class="text-white font-weight-medium">Game Design</h4>
                             <span>100 Courses</span>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="../static/img/cat-4.jpg" alt="">
+                        <img class="img-fluid" src="../../static/img/cat-4.jpg" alt="">
                         <a class="cat-overlay text-white text-decoration-none" href="">
                             <h4 class="text-white font-weight-medium">Apps Design</h4>
                             <span>100 Courses</span>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="../static/img/cat-5.jpg" alt="">
+                        <img class="img-fluid" src="../../static/img/cat-5.jpg" alt="">
                         <a class="cat-overlay text-white text-decoration-none" href="">
                             <h4 class="text-white font-weight-medium">Marketing</h4>
                             <span>100 Courses</span>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="../static/img/cat-6.jpg" alt="">
+                        <img class="img-fluid" src="../../static/img/cat-6.jpg" alt="">
                         <a class="cat-overlay text-white text-decoration-none" href="">
                             <h4 class="text-white font-weight-medium">Research</h4>
                             <span>100 Courses</span>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="../static/img/cat-7.jpg" alt="">
+                        <img class="img-fluid" src="../../static/img/cat-7.jpg" alt="">
                         <a class="cat-overlay text-white text-decoration-none" href="">
                             <h4 class="text-white font-weight-medium">Content Writing</h4>
                             <span>100 Courses</span>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="cat-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="../static/img/cat-8.jpg" alt="">
+                        <img class="img-fluid" src="../../static/img/cat-8.jpg" alt="">
                         <a class="cat-overlay text-white text-decoration-none" href="">
                             <h4 class="text-white font-weight-medium">SEO</h4>
                             <span>100 Courses</span>
@@ -105,37 +105,59 @@
 
 
     <!-- Courses Start -->
+
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center mb-5">
                 <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Courses</h5>
                 <h1>Our Popular Courses</h1>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="rounded overflow-hidden mb-2">
-                        <img class="img-fluid" src="../static/img/course-1.jpg" alt="">
-                        <div class="bg-secondary p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25 Students</small>
-                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>
-                            </div>
-                            <a class="h5" href="">{{ course.title }}</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>{{ course.active_students }}</small></h6>
-                                    <h5 class="m-0">${{ course.price }}</h5>
-                                </div >
+            <div class="container">
+                <div class="row">
+                    {% for course in courses %}
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="rounded overflow-hidden mb-2">
+                                <img class="img-fluid" src="{% static 'img/course-1.jpg' %}" alt="">
+                                <div class="bg-secondary p-4">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25 Students</small>
+                                        <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>
+                                    </div>
+                                    <a class="h5" href="{% url 'course-detail' course.pk %}">{{ course.title }}</a>
+                                    <div class="border-top mt-4 pt-4">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                            <h5 class="m-0">${{ course.price }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <a href="{% url 'course-create' %}"><button>Course create</button></a>
+        </div>
+    </div>
+        <!-- Courses End -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-5">
+                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Our Blog</h5>
+                <h1>Latest From Our Blog</h1>
+            </div>
+            <div class="row pb-3">
+                <div class="col-lg-4 mb-4">
+                    <div class="blog-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="../static/img/blog-1.jpg" alt="">
+                        <a class="blog-overlay text-decoration-none" href="{% url 'single' %}">
+                            <h5 class="text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita at ut clita</h5>
+                            <p class="text-primary m-0">Jan 01, 2050</p>
+                        </a>
                     </div>
                 </div>
-
-
+            </div>
+        </div>
     </div>
-    <!-- Courses End -->
 
 {% endblock %}
-</body>
-
-</html>

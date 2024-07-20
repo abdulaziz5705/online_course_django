@@ -14,7 +14,7 @@ class Teacher(models.Model):
 
 class Course(models.Model):
     title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=250)
+    slug = models.SlugField(max_length=250, null=True)
     description = models.TextField()
     mentor = models.ForeignKey(Teacher, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to='course/course/', null=True)
